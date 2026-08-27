@@ -1,27 +1,20 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: 'PMB Griya Bunda Gondanglegi - Sistem Pendaftaran Pasien',
-  description: 'Sistem Informasi Pendaftaran Pasien Online PMB Griya Bunda Gondanglegi - Layanan Bidan Profesional',
+  title: 'Fandora — Digital Health Technology & Health IT',
+  description: 'Fandora membantu rumah sakit, klinik, puskesmas, dan organisasi kesehatan membangun solusi digital yang lebih terhubung, efisien, dan manusiawi.',
+  generator: 'Fandora',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="id" className="bg-background">
-      <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
-  )
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#07151d',
+  width: 'device-width',
+  initialScale: 1,
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="id" className="bg-background"><body className="antialiased">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }

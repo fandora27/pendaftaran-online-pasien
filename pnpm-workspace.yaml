@@ -1,2 +1,5 @@
-allowBuilds:
-  sharp: false
+packages:
+  - "*"
+minimumReleaseAgeExclude:
+  - "@next/*"
+  - "next"
